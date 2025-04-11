@@ -21,7 +21,7 @@ public class ProductsController {
         return productsService.getAllProducts();
     }
 
-    @GetMapping(path="{productId}/{name}")//http://localhost:8080/api/products/productId con metodo get
+    @GetMapping(path="{productId}")//http://localhost:8080/api/products/productId con metodo get
     public Products getProductById(@PathVariable("productId")Long id){
         return productsService.getProductById(id);
     }

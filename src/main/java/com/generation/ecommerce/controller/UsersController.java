@@ -1,5 +1,6 @@
 package com.generation.ecommerce.controller;
 
+import com.generation.ecommerce.dto.DirectionsRequest;
 import com.generation.ecommerce.model.Users;
 import com.generation.ecommerce.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,12 @@ public class UsersController { //http://localhost:8080/api/users/
     @PostMapping
     public Users addUser(@RequestBody Users user){
         return usersService.addUser(user);
+    }
+
+    //agregar direccion a un usuario
+    @PostMapping(path="{userId}/add-direction")//http://localhost:8080/api/users/2/add-direction
+    public Users addDirectionUser(@PathVariable("userId")Long id, @RequestBody DirectionsRequest directionRequest){
+        return usersService.addDirectionUser(id, directionRequest);
     }
 
     @DeleteMapping(path="{userId}")
